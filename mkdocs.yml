@@ -1,0 +1,32 @@
+site_name: Pr1m3d Team Blog
+site_url: "https://pr1m3dctf.github.io/blog/"
+site_description: "Pr1m3d Team Blog"
+site_author: "Pr1m3d"
+repo_name: 'Pr1m3dCTF/blog'
+edit_uri: 'blob/master/docs/'
+repo_url: 'https://github.com/Pr1m3dCTF/blog'
+
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: purple
+    accent: green
+  features:
+    - navigation.tabs  # Enables top navigation
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    - navigating.sections
+    - search.suggest
+    - search.highlight
+
+nav:
+  - Home: /
+  - Researches: /Researches/
+  - Blog Posts: /Blog-Posts/
+  - CVE: /CVE/
+  - CTF: /CTF/
+  - Contact Us: /Contact-Us/
+  - About Us: /About-Us/
