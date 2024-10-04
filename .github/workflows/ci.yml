@@ -25,6 +25,8 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install -r requirements.txt
-      - run: mkdocs build
+      - run: pip install mkdocs-glightbox
+      - run: pip install mkdocs-material 
+      - run: pip install mkdocs-material[imaging]
+      - run: pip install pillow cairosvg
       - run: mkdocs gh-deploy --force
