@@ -1,5 +1,5 @@
 site_name: Pr1m3d Team Blog
-site_url: "https://pr1m3dctf.github.io/blog/"
+site_url: "https://pr1m3dctf.github.io/blog"
 site_description: "Pr1m3d Team Blog"
 site_author: "Pr1m3d"
 repo_name: 'Pr1m3dCTF/blog'
@@ -24,8 +24,8 @@ theme:
 
 nav:
   - Home: /
-  - Researches: Researches/
-  - Blog Posts: Blog-Posts/
+  - Research: Researches/
+  - Blog Post: Blog-Posts/
   - CVE: CVE/
   - CTF: CTF/
   - Contact Us: Contact-Us/
