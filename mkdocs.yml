@@ -24,9 +24,9 @@ theme:
 
 nav:
   - Home: /
-  - Researches: /Researches/
-  - Blog Posts: /Blog-Posts/
-  - CVE: /CVE/
-  - CTF: /CTF/
-  - Contact Us: /Contact-Us/
-  - About Us: /About-Us/
+  - Researches: Researches/
+  - Blog Posts: Blog-Posts/
+  - CVE: CVE/
+  - CTF: CTF/
+  - Contact Us: Contact-Us/
+  - About Us: About-Us/
