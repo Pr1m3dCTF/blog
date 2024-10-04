@@ -23,7 +23,7 @@ theme:
     - search.highlight
 
 nav:
-  - Home: /
+  - Home: .
   - Research: Researches/
   - Blog Post: Blog-Posts/
   - CVE: CVE/
