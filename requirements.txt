@@ -5,3 +5,4 @@ mkdocs-material[imaging]
 pillow
 cairosvg
 cairocffi
+mkdocs-git-authors-plugin
