@@ -62,7 +62,10 @@ plugins:
 nav:
   - Home: .
   - Research: Researches/
-  - Blog Post: Blog-Posts/
+  - Blog Post: 
+    - Blog-Posts/index.md
+    - Android Stack Overflow Exploitation with Frida: Blog-Posts/Android-Stack-Overflow-Exploitation-with-Frida.md
+    - Analyzing MSFVenom Android Payload: Blog-Posts/Msfvenom-Android-Malware-Analysis.md
   - CVE: CVE/
   - CTF: CTF/
   - Contact Us: Contact-Us/
