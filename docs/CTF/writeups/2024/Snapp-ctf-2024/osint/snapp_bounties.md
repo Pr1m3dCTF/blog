@@ -1,9 +1,14 @@
-# Snapp Bounties
+---
+showFullContent: false
+readingTime: true
+---
+
+## Snapp Bounties
 
 How many reports has **SNAPP** paid bounties for? How many hackers have been paid bounties? Concatenate the first number to the second and send the flag as `SNAPP{X-Y}`, where `X` and `Y` are the answers to the questions.
 
 
-# Solution
+## Solution
 
 I searched about snapp bug bounty program statistics like below
 

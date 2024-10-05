@@ -1,4 +1,10 @@
+---
+showFullContent: false
+readingTime: true
+---
+
 ## 1 - Challenge code and Description
+
 ```
 As your investigation progressed, a clue led you to a local bar where you met an undercover agent with valuable information.
 He spoke of a famous astronomy scientist who lived in the area and extensively studied the relic.

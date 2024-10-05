@@ -1,4 +1,9 @@
-# Blink
+---
+showFullContent: false
+readingTime: true
+---
+
+## Blink
 
 ## Description
 

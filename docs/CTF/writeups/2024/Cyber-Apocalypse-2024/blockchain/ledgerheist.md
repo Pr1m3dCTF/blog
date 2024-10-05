@@ -1,3 +1,8 @@
+---
+showFullContent: false
+readingTime: true
+---
+
 ## Ledger Heist
 
 ## code / Description
