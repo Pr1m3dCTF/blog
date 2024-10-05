@@ -21,6 +21,13 @@ theme:
     - navigating.sections
     - search.suggest
     - search.highlight
+    - search.share
+    - navigation.path
+    - navigation.top
+    - navigation.indexes
+    - content.code.copy
+    - content.code.select
+    
 
 markdown_extensions:
   - pymdownx.highlight:
