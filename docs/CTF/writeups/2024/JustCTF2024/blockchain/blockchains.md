@@ -1,3 +1,7 @@
+---
+showFullContent: false
+readingTime: true
+---
 
 ## The Otter Scrolls
 

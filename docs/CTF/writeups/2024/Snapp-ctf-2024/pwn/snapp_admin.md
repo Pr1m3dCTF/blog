@@ -1,3 +1,8 @@
+---
+showFullContent: false
+readingTime: true
+---
+
 ## Snapp Admin
 
 ````

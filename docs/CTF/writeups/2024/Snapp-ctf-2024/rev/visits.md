@@ -1,4 +1,9 @@
-# Visits
+---
+showFullContent: false
+readingTime: true
+---
+
+## Visits
 
 ## Description
 

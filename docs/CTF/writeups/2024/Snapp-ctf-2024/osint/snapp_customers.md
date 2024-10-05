@@ -1,4 +1,9 @@
-# Snapp Customers
+---
+showFullContent: false
+readingTime: true
+---
+
+## Snapp Customers
 
 ## Description
 

@@ -1,4 +1,9 @@
-# TurnOB
+---
+showFullContent: false
+readingTime: true
+---
+
+## TurnOB
 
 ## Description
 

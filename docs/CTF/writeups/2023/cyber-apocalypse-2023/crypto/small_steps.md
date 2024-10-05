@@ -1,3 +1,8 @@
+---
+showFullContent: false
+readingTime: true
+---
+
 ## 1 - Challenge Code and Description
 
 ```

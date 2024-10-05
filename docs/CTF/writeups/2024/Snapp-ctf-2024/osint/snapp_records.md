@@ -1,4 +1,9 @@
-# Snapp Records
+---
+showFullContent: false
+readingTime: true
+---
+
+## Snapp Records
 
 ## Description
 
