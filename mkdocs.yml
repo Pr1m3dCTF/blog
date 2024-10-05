@@ -22,6 +22,43 @@ theme:
     - search.suggest
     - search.highlight
 
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+
+  
+  
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+
+plugins:
+  - glightbox
+  - search
+  # - git-authors
+  - tags:
+      title: Pr1m3d Team Blog
+      description: Welcome To Pr1m3d Team Blogs
+      # image: docs/favicon.png
+  # - social:
+  #     cards: true
+  #     # cards_layout: default
+
+
 nav:
   - Home: .
   - Research: Researches/
@@ -30,3 +67,11 @@ nav:
   - CTF: CTF/
   - Contact Us: Contact-Us/
   - About Us: About-Us/
+
+
+
+# extra:
+#   git_authors:
+#     exclude_emails: # List of emails to exclude from the authorship info
+#       - "noreply@example.com"
+#     include_coauthors: true # Include co-authors from commits
