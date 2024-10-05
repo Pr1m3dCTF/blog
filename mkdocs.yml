@@ -67,7 +67,61 @@ nav:
     - Android Stack Overflow Exploitation with Frida: Blog-Posts/Android-Stack-Overflow-Exploitation-with-Frida.md
     - Analyzing MSFVenom Android Payload: Blog-Posts/Msfvenom-Android-Malware-Analysis.md
   - CVE: CVE/
-  - CTF: CTF/
+  - CTF:
+    - CTF/index.md
+    - writeups:
+      - 2023:
+        - Cyber Apocalypse 2023: 
+          - crypto: 
+            - inside the matrix: CTF/writeups/2023/cyber-apocalypse-2023/crypto/inside_the_matrix.md
+            - multipage recyclings: CTF/writeups/2023/cyber-apocalypse-2023/crypto/multipage_recyclings.md
+            - perfect synchronization: CTF/writeups/2023/cyber-apocalypse-2023/crypto/perfect_synchronization.md
+            - small steps: CTF/writeups/2023/cyber-apocalypse-2023/crypto/small_steps.md
+          - blockchain:
+            - navigating the unknown: CTF/writeups/2023/cyber-apocalypse-2023/blockchain/navigating_the_unknown.md
+            - shooting 101: CTF/writeups/2023/cyber-apocalypse-2023/blockchain/shooting_101.md
+          - web:
+            - passman: CTF/writeups/2023/cyber-apocalypse-2023/web/passman.md
+          - hardware: 
+            - hm74: CTF/writeups/2023/cyber-apocalypse-2023/hardware/hm74.md
+          - forensics:
+            - packet cyclone: CTF/writeups/2023/cyber-apocalypse-2023/forensics/packet_cyclone.md
+      - 2024:
+        - Snapp CTF 2024:
+          - CTF/writeups/2024/Snapp-ctf-2024/index.md
+          - crypto: 
+            - Cryptos: CTF/writeups/2024/Snapp-ctf-2024/crypto/Cryptos.md
+            - Bombastic: CTF/writeups/2024/Snapp-ctf-2024/crypto/Bombastic.md
+            - Blex: CTF/writeups/2024/Snapp-ctf-2024/crypto/Blex.md
+            - Grail: CTF/writeups/2024/Snapp-ctf-2024/crypto/Grail.md
+          - pwn:
+            - Snapp admin: CTF/writeups/2024/Snapp-ctf-2024/pwn/snapp_admin.md
+            - Snapp shell: CTF/writeups/2024/Snapp-ctf-2024/pwn/snapp_shell.md
+          - rev:
+            - Visits: CTF/writeups/2024/Snapp-ctf-2024/rev/visits.md
+            - TurnOB: CTF/writeups/2024/Snapp-ctf-2024/rev/turnob.md
+            - Blink: CTF/writeups/2024/Snapp-ctf-2024/rev/blink.md
+          - web:
+            - Snapp cat: CTF/writeups/2024/Snapp-ctf-2024/web/snapp_cat.md
+            - Snapp fal: CTF/writeups/2024/Snapp-ctf-2024/web/snapp_fal.md
+            - welcome: CTF/writeups/2024/Snapp-ctf-2024/web/welcome.md
+          - forensics:
+            - Snapp Report: CTF/writeups/2024/Snapp-ctf-2024/forensics/snapp_report.md
+          - osint:
+            - Snapp Records: CTF/writeups/2024/Snapp-ctf-2024/osint/snapp_records.md
+            - Snapp Bounties: CTF/writeups/2024/Snapp-ctf-2024/osint/snapp_bounties.md
+            - Snapp Customers: CTF/writeups/2024/Snapp-ctf-2024/osint/snapp_customers.md
+            - Snapp Saving: CTF/writeups/2024/Snapp-ctf-2024/osint/snapp_saving.md
+        - Cyber Apocalypse 2024:
+          - crypto:
+            - Permuted: CTF/writeups/2024/Cyber-Aplocalypse-2024/crypto/permuted.md
+          - blockchain:
+            - Lucky Facucet: CTF/writeups/2024/Cyber-Aplocalypse-2024/blockchain/luckyfaucet.md
+            - Russian Roulette: CTF/writeups/2024/Cyber-Aplocalypse-2024/blockchain/russianroulette.md
+            - Ledger Heist: CTF/writeups/2024/Cyber-Aplocalypse-2024/blockchain/ledgerheist.md
+        - Just CTF 2024:
+          - blockchain: CTF/writeups/2024/JustCTF2024/blockchain/blockchains.md
+
   - Contact Us: Contact-Us/
   - About Us: About-Us/
 
