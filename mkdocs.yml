@@ -24,6 +24,7 @@ theme:
     - search.share
     - navigation.path
     - navigation.top
+    - navigation.expand
     - navigation.indexes
     - content.code.copy
     - content.code.select
@@ -73,6 +74,8 @@ nav:
     - Blog-Posts/index.md
     - Android Stack Overflow Exploitation with Frida: Blog-Posts/Android-Stack-Overflow-Exploitation-with-Frida.md
     - Analyzing MSFVenom Android Payload: Blog-Posts/Msfvenom-Android-Malware-Analysis.md
+    - HTB Busqueda Machine Writeup: Blog-Posts/HTB-Busqueda-Machine-Writeup.md
+    - PWN - Stack binary exploiting Writeup: Blog-Posts/PWN-Stack-binary-exploiting-Writeup.md
   - CVE: CVE/
   - CTF:
     - CTF/index.md
