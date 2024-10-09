@@ -11,7 +11,9 @@ ShowRssButtonInSectionTermList: true
 Icon: htb.svg
 ---
 
-{{< image src="images/Busqueda.png" w=700 h=500 alt="Busqueda Info Card" >}}
+<center>
+![Busqueda](./images/Busqueda.png)
+</center>
 
 When I started getting into cybersecurity and htb I had no idea where to begin, What to do and why enter commands that I found. So in this writeup as it's an easy machine i'll try to write a short part for each command to explain what does the command do, how did I figured out I should use this command, etc. So without any further waste of time lets get to it.
 
@@ -96,7 +98,7 @@ Anyway the output of port scan shows us that there is two ports open, 22 which i
 So it uses a domain name. Lets add it to our /etc/hosts file so we can take a look at the website.(add `10.10.11.208	searcher.htb` to your hosts file)
 
 And opening it in our browse, We'll see a website
-{{< image src="images/busqueda-web.png" alt="web page" >}}
+![Busqueda Web](./images/busqueda-web.png)
 
 It's just a website that adds our input to the link for searching of those platforms. 
 ### Initial access
