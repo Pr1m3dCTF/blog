@@ -1,0 +1,129 @@
+[data-md-color-scheme="mylight"] {
+    --md-primary-fg-color: #b60000; /* Red for header */
+    --md-primary-bg-color: #dddada; /* White for text in header */
+    --md-accent-fg-color: #000000; /* Lighter red for accents */
+    --md-default-bg-color: #ebebeb; /* Black for background */
+    --md-default-fg-color: #303030; /* White for text */
+    --md-default-fg-color--light: #303030; /* Light gray for secondary text */
+    --md-default-fg-color--lighter: #303030; /* Lighter gray for muted text */
+    --md-code-bg-color: #cecece; /* Dark gray for code blocks */
+    --md-code-fg-color: #000000; /* White for code text */
+    --md-comment-color: #4b4b4b;
+    --md-typeset-a-color: #ff4444;
+}
+
+[data-md-color-scheme="mydark"] {
+    --md-primary-fg-color: #b60000; /* Red for header */
+    --md-primary-bg-color: #dddada; /* White for text in header */
+    --md-accent-fg-color: #ffffff; /* Lighter red for accents */
+    --md-default-bg-color: #202020; /* Black for background */
+    --md-default-fg-color: #d1d1d1; /* White for text */
+    --md-default-fg-color--light: #e0e0e0; /* Light gray for secondary text */
+    --md-default-fg-color--lighter: #b0b0b0; /* Lighter gray for muted text */
+    --md-code-bg-color: #303030; /* Dark gray for code blocks */
+    --md-code-fg-color: #ffffff; /* White for code text */
+    --md-comment-color: #cfcfcf;
+    --md-typeset-a-color: #ff4444;
+}
+
+
+/* Body and overall text */
+body {
+    color: var(--md-default-fg-color); /* White text */
+    background-color: var(--md-default-bg-color); /* Black background */
+}
+
+/* Header */
+.md-header {
+    background-color: var(--md-primary-fg-color); /* Red header */
+    color: var(--md-primary-bg-color); /* White text in header */
+}
+
+/* Navigation links */
+.md-nav__link {
+    color: var(--md-default-fg-color); /* White text */
+}
+
+.md-nav__link--active {
+    color: var(--md-primary-fg-color); /* Red for active link */
+}
+
+/* Links in content */
+.md-typeset a {
+    color: var(--md-typeset-a-color); /* Red links */
+}
+
+.md-typeset a:hover {
+    color: var(--md-accent-fg-color); /* Lighter red on hover */
+}
+
+/* Footer */
+.md-footer {
+    background-color: var(--md-primary-fg-color); /* Red footer */
+    color: var(--md-primary-bg-color); /* White text in footer */
+}
+
+.md-footer-meta {
+    background-color: #b10000; /* Dark gray for footer meta */
+    color: var(--md-default-fg-color); /* White text */
+}
+
+/* Code blocks */
+.md-typeset pre {
+    background-color: var(--md-code-bg-color); /* Dark gray for code blocks */
+    color: var(--md-code-fg-color); /* White text in code blocks */
+}
+
+.highlight .c,  /* General comments */
+.highlight .cm, /* Multiline comments */
+.highlight .c1 { /* Single-line comments */
+    color: var(--md-comment-color);
+    font-style: italic;
+}
+
+/* Tables */
+.md-typeset table:not([class]) {
+    background-color: #1a1a1a; /* Dark gray for tables */
+    color: var(--md-default-fg-color); /* White text in tables */
+}
+
+.md-typeset table:not([class]) th {
+    background-color: #333333; /* Slightly lighter gray for table headers */
+    color: var(--md-default-fg-color); /* White text in table headers */
+}
+
+.md-typeset table:not([class]) td {
+    border-top: 1px solid #444444; /* Gray border for table rows */
+}
+
+/* Buttons */
+.md-typeset .md-button {
+    background-color: var(--md-primary-fg-color); /* Red buttons */
+    color: var(--md-primary-bg-color); /* White text in buttons */
+    border-radius: 4px;
+    padding: 0.5em 1em;
+    text-align: center;
+}
+
+.md-typeset .md-button:hover {
+    background-color: var(--md-accent-fg-color); /* Lighter red on hover */
+}
+
+/* Admonitions (notes, warnings, etc.) */
+.md-typeset .admonition {
+    background-color: #1a1a1a; /* Dark gray for admonitions */
+    color: var(--md-default-fg-color); /* White text */
+    border-left: 4px solid var(--md-primary-fg-color); /* Red border */
+}
+
+.md-typeset .admonition-title {
+    background-color: #333333; /* Slightly lighter gray for title */
+    color: var(--md-default-fg-color); /* White text */
+}
+
+/* Blockquotes */
+.md-typeset blockquote {
+    color: var(--md-default-fg-color--light); /* Light gray for blockquotes */
+    border-left: 4px solid var(--md-primary-fg-color); /* Red border */
+    background-color: #1a1a1a; /* Dark gray background */
+}
