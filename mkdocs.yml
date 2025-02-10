@@ -10,9 +10,9 @@ repo_url: 'https://github.com/Pr1m3dCTF/blog'
 theme:
   name: material
   palette:
-    scheme: slate
-    primary: red
-    accent: green
+    # scheme: slate
+    # primary: red
+    # accent: green
   features:
     - navigation.tabs  # Enables top navigation
     - content.code.copy
@@ -135,6 +135,10 @@ nav:
   - Contact Us: Contact-Us/
   - About Us: About-Us/
 
+
+
+extra_css:
+  - stylesheets/extra.css
 
 
 # extra:
