@@ -11,7 +11,7 @@ theme:
   name: material
   palette:
     scheme: slate
-    primary: purple
+    primary: red
     accent: green
   features:
     - navigation.tabs  # Enables top navigation
