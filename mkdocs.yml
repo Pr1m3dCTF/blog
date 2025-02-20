@@ -38,6 +38,10 @@ theme:
     - navigation.indexes
     - content.code.copy
     - content.code.select
+    - navigation.instant.preview
+    
+  # extensions:
+  #   - material.extensions.preview
     
 
 markdown_extensions:
@@ -56,6 +60,12 @@ markdown_extensions:
   - tables
   - pymdownx.arithmatex:
       generic: true
+  - attr_list
+  # - material.extensions.preview:
+  #     configurations:
+  #         - targets:
+  #             include:
+  #               - Blog-Posts/Android-Stack-Overflow-Exploitation-with-Frida/index.md
 
   
   
