@@ -60,7 +60,6 @@ markdown_extensions:
   - tables
   - pymdownx.arithmatex:
       generic: true
-  - attr_list
   # - material.extensions.preview:
   #     configurations:
   #         - targets:
@@ -70,9 +69,9 @@ markdown_extensions:
   
   
 extra_javascript:
-  - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - assets/js/extra.js
 
 
 plugins:
@@ -97,7 +96,11 @@ nav:
     - Analyzing MSFVenom Android Payload: Blog-Posts/Msfvenom-Android-Malware-Analysis.md
     - HTB Busqueda Machine Writeup: Blog-Posts/HTB-Busqueda-Machine-Writeup.md
     - PWN - Stack binary exploiting Writeup: Blog-Posts/PWN-Stack-binary-exploiting-Writeup.md
-  - CVE: CVE/
+  - CVE:
+    - CVE/index.md
+    - Stored XSS in Email Body of SmarterMail (CVE-2023-48114) : CVE/CVE-2023-48114.md
+    - Stored DOM XSS in Email Body of SmarterMail (CVE-2023-48115): CVE/CVE-2023-48115.md
+    - Stored XSS in Calendar component of SmarterMail (CVE-2023-48116): CVE/CVE-2023-48116.md
   - CTF:
     - CTF/index.md
     - writeups:
