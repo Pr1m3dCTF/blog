@@ -6,6 +6,7 @@
     --md-default-fg-color: #303030; /* White for text */
     --md-default-fg-color--light: #303030; /* Light gray for secondary text */
     --md-default-fg-color--lighter: #303030; /* Lighter gray for muted text */
+    --md-default-bg-color--light: #000000;
     --md-code-bg-color: #fcfcfc; /* Dark gray for code blocks */
     --md-code-fg-color: #000000; /* White for code text */ /* Changed to white */
     --md-comment-color: #4b4b4b;
@@ -29,6 +30,7 @@
     --md-default-fg-color: #d1d1d1; /* White for text */
     --md-default-fg-color--light: #e0e0e0; /* Light gray for secondary text */
     --md-default-fg-color--lighter: #b0b0b0; /* Lighter gray for muted text */
+    --md-default-bg-color--light: #ffffff;
     --md-code-bg-color: #303030; /* Dark gray for code blocks */
     --md-code-fg-color: #ffffff; /* White for code text */ /* Changed to white */
     --md-comment-color: #cfcfcf;
@@ -45,6 +47,11 @@
     --md-nt-color: #d5df4b;
     --md-na-color: #ffffff;
 }
+
+html {
+    scroll-behavior: smooth;    
+}
+
 
 /* Target fenced code blocks */
 .md-typeset pre > code {
@@ -154,7 +161,7 @@ body {
 .md-typeset blockquote {
     color: var(--md-default-fg-color--light); /* Light gray for blockquotes */
     border-left: 4px solid var(--md-primary-fg-color); /* Red border */
-    background-color: #1a1a1a; /* Dark gray background */
+    background-color: var(--md-default-bg-color--ligh); /* Dark gray background */
 }
 
 
