@@ -1,3 +1,3 @@
 # CTF
 
-Here we will publish our team's writeups for CTFs we've participated
+Here we will publish our content related to CTFs, writeups, and challenges.
