@@ -88,7 +88,15 @@ plugins:
 
 
 nav:
-  - Home: .
+  - Home:
+    - index.md
+    - Research: Researches/
+    - Blog Post: Blog-Posts/
+    - CVE: CVE/
+    - CTF: CTF/
+    - Contact Us: Contact-Us/
+    - About Us: About-Us/
+
   - Research: Researches/
   - Blog Post: 
     - Blog-Posts/index.md

@@ -237,4 +237,5 @@ this script will copy bash in tmp and add suid permission to it and we can get r
 ![Root Access](./images/busqueda-root.png "Root Access")
 
 # Authors
-- [D4rkNebula](https://github.com/D4rkNebula)
+
+> Written by [D4rkNebula](https://github.com/D4rkNebula)
