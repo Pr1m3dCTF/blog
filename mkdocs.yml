@@ -163,7 +163,10 @@ nav:
             - Ledger Heist: CTF/writeups/2024/Cyber-Apocalypse-2024/blockchain/ledgerheist.md
         - Just CTF 2024:
           - blockchain: CTF/writeups/2024/JustCTF2024/blockchain/blockchains.md
-
+      - 2025:
+        - Cyber Apocalypse 2025:
+          - crypto:
+            - Twin Oracle: CTF/writeups/2025/Cyber-Apocalypse-2025/crypto/twin-oracle.md
   - Contact Us: Contact-Us/
   - About Us: About-Us/
 
