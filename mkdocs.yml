@@ -34,7 +34,7 @@ theme:
     - search.share
     - navigation.path
     - navigation.top
-    - navigation.expand
+    # - navigation.expand
     - navigation.indexes
     - content.code.copy
     - content.code.select
