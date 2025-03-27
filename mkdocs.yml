@@ -165,6 +165,7 @@ nav:
           - blockchain: CTF/writeups/2024/JustCTF2024/blockchain/blockchains.md
       - 2025:
         - Cyber Apocalypse 2025:
+          - CTF/writeups/2025/Cyber-Apocalypse-2025/index.md
           - crypto:
             - Twin Oracle: CTF/writeups/2025/Cyber-Apocalypse-2025/crypto/twin-oracle.md
   - Contact Us: Contact-Us/
