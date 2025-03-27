@@ -5,6 +5,10 @@ readingTime: true
 
 ## Twin Oracle
 
+|Category|Difficulty|Score|
+|:-|:-|:-|
+|Crypto|Hard|1000|
+
 ## Code / Description
 
 ```
@@ -633,6 +637,6 @@ print(flag)
 HTB{1_l0v3_us1ng_RS4_0r4cl3s___3v3n_4_s1ngl3_b1t_1s_3n0ugh_t0_g3t_m3_t0_3ld0r14!_723d443d2e3da66d924780cf2a55953c}
 ```
 
-## Authors:
+## Authors
 
-> Authors - [Kourosh Rajabzadeh](https://github.com/KooroshRZ)
+> [Kourosh Rajabzadeh](https://github.com/KooroshRZ)
