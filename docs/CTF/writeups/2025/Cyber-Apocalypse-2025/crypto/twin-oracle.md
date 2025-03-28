@@ -120,15 +120,16 @@ if __name__ == '__main__':
 
 This challenge consists of several challenges
 
-1. Break a weak implemented pseudorandom number generator (PRNG) to recover its seed
-2. Attack two different RSA oracles using side channel attacks with two different  strategies
+1. Break a weakly implemented pseudorandom number generator (PRNG) to recover its seed
+2. Attack two different RSA oracles using side-channel attacks with two different strategies
 3. combine the two attacks to overcome the limit on the number of requests
+
 
 ## Challenge Analysis
 
-First of all let's analyze what the source code is doing.
+First of all, let's analyze what the source code is doing.
 
-It has two classes named `ChaosRelic` and `ObsidianSeers`
+It has two classes, `ChaosRelic` and `ObsidianSeers`.
 
 + Class `ChaosRelic`
 
@@ -153,7 +154,7 @@ class ChaosRelic:
         return self.x % 2
 ```
 
-this class looks like a random number generator which starts with an intial state x0 and every time states changes like this
+This class looks like a random number generator that starts with an initial state $x_0$, and every time the state changes like this
 
 <center>
 $x \equiv x^2 \mod M$
@@ -161,7 +162,8 @@ $x \equiv x^2 \mod M$
 $M = p*q$
 </center>
 
-M is a 16-bit composite number which is multiplication of two 8-bit primes `p,q`. ‌Because M is in form of $p*q$, the x will not generate the entire group and and it will randomly generate some specific elelemnts from the group and will cycle through them. this is quite similar to a random number generator. **The M is public which is printed in the server banner below. but the x0 (the initial state) is unkown**
+M is a 16-bit composite number which is the multiplication of two 8-bit primes `p,q.` ‌Because M is in the form of $p*q$, the x will not generate the entire group, and it will randomly generate some specific elements from the group and will cycle through them. This is quite similar to a random number generator. **The M is public and is printed in the server banner below. But the x0 (the initial state) is unknown**
+
 
 ```
 You stand before the Seers of the Obsidian Tower. They alone hold the knowledge you seek.
@@ -203,9 +205,10 @@ class ObsidianSeers:
         return response
 ```
 
-ُThis class consists of implementing 1024 bit RSA algorithm with a bunch of functions doing random stuff, which will be explored further.
+ُThis class consists of implementing a 1024-bit RSA algorithm with a bunch of functions doing random stuff, which will be explored further.
 
-the main section of the code offers us 3 choices:
+The main section of the code offers us three choices:
+
 
 ```
 The Seers await your command:
@@ -215,7 +218,7 @@ The Seers await your command:
 3. Depart from the Sanctum
 ```
 
-+ The third option is nothing but to quit from the program
++ The third option is nothing but to quit the program
 
 ```py
 else:
@@ -223,7 +226,7 @@ else:
     continue
 ```
 
-+ By choosing the first one, the server will encrypt the flag and provide us the public RSA modulus and the encrypted flag.
++ By choosing the first one, the server will encrypt the flag and provide us with the public RSA modulus and the encrypted flag.
 
 ```py
 if option == '1':
@@ -243,7 +246,7 @@ The Elders grant you insight: n = 8422398811232978864331512647885629800196446522
 The ancient script has been sealed: 47694792918067833618743337085074169616387122847854183880922228123790116865360288170088204064193033596887527465969348968814544104147445017166395413765181640814259263450597744776172288013953900133905995520194649135666797777071440078060478319519681570941988003198237202426022625737178644671710688961046463818717
 ```
 
-+ By choosing the second option, the server expects an encrypted text in hex format from us and furthermore, it will call the `consult_seers` function with our input.
++ By choosing the second option, the server expects an encrypted text in hex format from us and will call the `consult_seers` function with our input.
 
 
 ```py
@@ -252,7 +255,7 @@ elif option == '2':
     print(f'The Seers whisper their answer: {my_seers.consult_seers(ciphertext)}')
 ```
 
-Let's see what is hapenning inside the called function.
+Let's see what happens inside the function.
 
 ```py
 def consult_seers(self, c):
@@ -261,7 +264,8 @@ def consult_seers(self, c):
     return response
 ```
 
-this function calls the `get_bit` function of `relic` instance which is and instance of `ChaosRelic` class that was explored before. Here is the get_bit function
+This function is called the `get_bit` function of the `relic` instance, which is an instance of the `ChaosRelic` class that was explored before. Here is the get_bit function
+
 
 ```py
 def get_bit(self):
@@ -269,7 +273,7 @@ def get_bit(self):
     return self.extract_bit_from_state()
 ```
 
-It will simply calls the next_state funtion which will generate new state from previous state
+It will simply call the next_state function, which will generate a new state from the previous state
 
 ```py
 def next_state(self):
@@ -280,7 +284,7 @@ def next_state(self):
 $state \equiv state^2 \mod M$
 </center>
 
-back to the `get_bit` function, this function calls another function named `extract_bit_from_state` which will return the LSB(Least Significant bit) of the state simply by taking the state to modulus 2
+Back to the `get_bit` function, this function calls another function named `extract_bit_from_state,` which will return the LSB(Least Significant bit) of the state simply by taking the state to modulus 2
 
 
 ```py
@@ -292,7 +296,7 @@ def extract_bit_from_state(self):
     return self.x % 2
 ```
 
-Let's get back to the first function `consult_seers`. overall, the first line will generate a new state and returns if it is even or odd.
+Let's return to the first function, `consult_seers.` Overall, the first line will generate a new state and return whether it is even or odd.
 
 
 ```py
@@ -302,7 +306,7 @@ def consult_seers(self, c):
     return response
 ```
 
-the next line will call `divine_prophecy` with `next_bit` and the encrypted text `c` which we have given to the server. Let's see what is happening inside the called function
+The next line will be called `divine_prophecy` with `next_bit` and the encrypted text `c,` which we have given to the server. Let's see what is happening inside the function
 
 ```py
 def HighSeerVision(self, c):
@@ -315,11 +319,11 @@ def divine_prophecy(self, a_bit, c):
     return self.FateSeerWhisper(c) if a_bit == 0 else self.HighSeerVision(c)
 ```
 
-Based on the next_bit parameter which tells us whether the state is even or odd, it will call two different functions. if the state is off, it will call `HighSeerVision` with our provided encrypted text `c`. Otherwise , it will call `FateSeerWhisper` function.
+The following line will be called `divine_prophecy` with `next_bit` and the encrypted text `c,` which we have given to the server. Let's see what is happening inside the function
 
-The `FateSeerWhisper` will tell us Wether the decryption of the our provided cipher `c` is even or odd by taking to modulus 2. On the other hand, the `FateSeerWhisper` function will tell us whether the decryption of cipher message `c` is greater than the half of public modulus `n` or not.
+The `FateSeerWhisper` will tell us whether the decryption of our provided cipher `c` is even or odd by taking to modulus 2. On the other hand, the `FateSeerWhisper` function will tell us whether the decryption of cipher message `c` is larger than half of the public modulus `n` or not.
 
-In a big picture, we can illustrate the overall process using this code
+In a big picture, we can illustrate the overall process using this code:
 
 ```py
 c = input('hex format : ')
@@ -355,7 +359,8 @@ The Seers whisper their answer: 1
 
 ## Solution
 
-Now that we've realized what the code is doing we can start to explain the solution. It is obvious that we are facing a RSA oracle which expects ciphertext from user and returns just a single bit (0 or 1). For when the state is 0, the oracle actually returns the least significant bit of the decrypted text. There is already a known attack to recover an encrypted ciphertext from a RSA oracle that has such behavious named **Least Significant Bit Oracle Attack**. There are already a lot of explanation about it around the internet but I used [this github link](https://github.com/ashutosh1206/Crypton/blob/master/RSA-encryption/Attack-LSBit-Oracle/README.md) and also [this stackexchange link](https://crypto.stackexchange.com/questions/11053/rsa-least-significant-bit-oracle-attack) which has demonstrated it with example and also the python code.
+We can start explaining the solution now that we've realized what the code is doing. We are obviously facing an RSA oracle that expects ciphertext from the user and returns just a single bit (0 or 1). When the state is 0, the oracle returns the least significant bit of the decrypted text. There is already a known attack to recover an encrypted ciphertext from an RSA oracle that has such behaviors named **Least Significant Bit Oracle Attack**. There are already a lot of explanations about it around the internet, but I used [this GitHub link](https://github.com/ashutosh1206/Crypton/blob/master/RSA-encryption/Attack-LSBit-Oracle/README.md) and also [this StackExchange link](https://crypto.stackexchange.com/questions/11053/rsa-least-significant-bit-oracle-attack) which has demonstrated it with example and also the python code.
+
 
 ```py
 e = 65537
@@ -380,15 +385,15 @@ while i <= 1024:
 print long_to_bytes(upper_limit)
 ```
 
-If you want detailed explanation about how this attack works read through those links but let's describe the overall algorithm.
+If you want a detailed explanation of how this attack works, read through those links, but let's describe the overall algorithm.
 
-RSA has an amazing property named [Homomorphism](https://en.wikipedia.org/wiki/Homomorphism). it means
+RSA has a fantastic property named [Homomorphism](https://en.wikipedia.org/wiki/Homomorphism). it means
 
 <center>
 $f(x.y) = f(x).f(y)$
 </center>
 
-In terms of RSA, imagine we have two messages $m_1$ and $m_2$. By definition we can write:
+Regarding RSA, imagine we have two messages: $m_1$ and $m_2$. By definition, we can write:
 
 <center>
 $E(m1*m2) = E(m1).E(m2)$
@@ -406,28 +411,29 @@ $c \equiv (m_1*m_2)^e = (m)^e \mod n$
 $c \equiv c1 * c2 \mod n$
 </center>
 
-Consider we want to decrypt the encrypted flag `flag` which has been encrypted
+Consider we want to decrypt the encrypted `flag`, which has been encrypted.
 
 <center>
 $cf \equiv flag^e \mod N$
 </center>
 
-Let's analyze this approach
+Let's analyze this approach.
 
-encrypt `2` by the public key `n,e` which is known, and multiply the result by cf modulus N and name the result ct
+Encrypt `2` by the public key `n,e`, which is known, and multiply the result by cf modulus N and name the result ct
 
 <center>
 $ct \equiv cf * 2^e \mod N$
 </center>
 
-By Homomorphism, we know that once upon the `ct` is decrypted it will result in $2*flag$. we know that `n` is odd and if $2*flag$ is less than `n` it will result in $2*flag$ which is definitely even and will return 0, but if $2*flag$ is greater than `n`, it will result in  $2*flag - N$ which is odd (even - odd = odd). the result will be 
+By Homomorphism, we know that once the `ct` is decrypted, it will result in $2*flag$. We know that `n` is odd, and if $2*flag$ is less than `n`, it will result in $2*flag$, which is definitely even and will return 0, but if $2*flag$ is greater than `n`, it will result in  $2*flag - N$ which is odd (even - odd = odd). The result will be 
+
 
 so we send $2M$ to the server:
 
-1. if the result is 0 then $M < N/2$ 
-2. if the result is 1 then $M > N/2$ 
+1. if the result is 0, then $M < N/2$ 
+2. if the result is 1, then $M > N/2$ 
 
-like $2M$, let's see how the server reacts for $4M$
+Like $2M$, let's see how the server reacts for $4M$
 
 we send $2M$ then $4M$ and based upon server behaviour
 
@@ -436,19 +442,20 @@ we send $2M$ then $4M$ and based upon server behaviour
 3. if the result is 1,0 then $M > N/2$ and $M < 3N/4$
 4. if the result is 1,1 then $M > N/2$ and $M > 3N/4$
 
-if we continue to raise the coefficients like $2M, 4M, 8M, 16M, ...$ we can limit the boundaries for M until we reach a specific value for M which is actualy the decrypted plaintext. It looks like some form of binary search to find M and it will done in $O(\log{n})$.
+If we continue to raise the coefficients like $2M, 4M, 8M, 16M, ...$, we can limit the boundaries for M until we reach a specific value for M, which is actually the decrypted plaintext. It looks like some form of binary search to find M, and it will done in $O(\log{n})$.
 
-I highly recommend to read the stackexchange link which has more details to explain.
+I recommend reading the StackExchange link, which has more details to explain.
 
-Now we know that we have an oracle which is vulnerable to LSB Oracle Attack. but there is a problem. Getting back to the code, we have two different oracles which the other one has different behavious and our put flows through each of them based on the state which is random and unknown. Therefore, to overcome this problem we have to first get the initial value of our random number generator. Due the its little size (16 bit) we can make sure that the cycling group which is being generated by the state is not that large.
+Now we know we have an Oracle that is vulnerable to an LSB Oracle attack. But there is a problem. Getting back to the code, we have two different oracles. The other one has different behaviors, and our put flows through each of them based on the state, which is random and unknown. Therefore, to overcome this problem, we must first get the initial value of our random number generator. Due to its small size (16-bit), we can ensure that the cycling group generated by the state is not that large.
 
-In order to find out the initial state, we need to give a carefully crafted input  that we are it will be directed to the second oracle which checks whether the decryption result is greater than $n/2$ or not. Let's say we send this encrypted text to the server
+To find out the initial state, we need to give a carefully crafted input that will be directed to the second oracle, which checks whether the decryption result is greater than $n/2$. Let's say we send this encrypted text to the server
+
 
 <center>
 $cf \equiv (N-1)^e \mod N$
 </center>
 
-after sending this inpuot to the server, lets see what will happen in different states
+After sending this input to the server, let's see what will happen in different states
 
 <center>
 $(c)^e \equiv N-1 \mod N$
@@ -471,11 +478,11 @@ else: # if state is odd
 1. if next_state() is even or (state % 2) is `0`: we know that N-1 is even so it will return `0` 
 2. if next_state() is odd or (state % 2) is `1`: we know that N-1 is greater than $n/2$ so it will return `1`
 
-Is is clear that this special input will return 0 if state is even and 1 if state id odd. 
+It is clear that this special input will return 0 if the state is even and 1 if the state ID is odd. 
 
-So we can get enough sequences of ${0,1}$ from server by this special input and determine what was initial state. To do so we will generate all possible states of every prime number between $2^14$ and $2^15$ (all 15 bit prime numbers) and check the recieved pattern from the oracle to match which number includes the same exact pattern and will determine the initial state which acts as the seed of our random number generator and wil finally break the weak implemented random number generator.
+So we can get enough sequences of ${0,1}$ from the server by this special input and determine the initial state. To do so, we will generate all possible states of every prime number between $2^14$ and $2^15$ (all 15-bit prime numbers) and check the received pattern from the oracle to match which number includes the same pattern. We will determine the initial state, which acts as the seed of our random number generator, and will finally break the weakly implemented PRNG
 
-Here is the implemented code to recover the server's initial state
+Here is the implemented code to recover the server's initial state:
 
 ```py
 def gen_patterns(M):
@@ -537,15 +544,17 @@ print(states)
 print(index)
 ```
 
-Now that we have the initial state, we can predict the next state and detemine which oracle our input is going to flow so we can send our crdafted input for LSB oracle attack if the state is even, otherwise we will send an empty input to avoid the second oracle. But there is another problem. we approximately 1024 requests to do the attack (because it performs in $Log_n$ and the $n$ is 1024 bit), but there is a counter which limit the total number of requests to 1500
+Now that we have the initial state, we can predict the next state and determine which oracle our input will flow to send our crafted input for the LSB oracle attack if the state is even. Otherwise, we will send an empty input to avoid the second oracle. But there is another problem. We need approximately 1024 requests to make the attack (because it performs in $Log_n$ and the $n$ is 1024 bit), but there is a counter that limits the total number of requests to 1500
 
 ```py
 while counter <= 1500:
 ```
 
-Based on the value of state, around half of our reqeusts will go to the desired oracle, which results in sending about 750 requests and the remaining requests will not be accepted by the server anymore. Therefore, the decryption process will remain unfinished and we have to start from the beginning.
+Based on the state value, around half of our requests will go to the desired oracle, which results in sending about 750 requests. The remaining requests will not be accepted by the server anymore. Therefore, the decryption process will remain unfinished, and we have to start from the beginning.
 
-In order to overcome this challenge and based on the challenge name (twin oracle) we should somehow utilize both oracles to limit our boundaries of n to recover m, which is flag. After searching for a noticeable amount of time, I came up with the idea of exploting the second oracle's behaviour to decrypt the flag. Although I could not find direct reference to explain this attack but we can observe and illustrate it as an example.
+To overcome this challenge, based on the challenge name (twin oracle), we should utilize both oracles to limit our boundaries of n to recover m, which is the flag. After searching for a noticeable amount of time, I came up with exploiting the second oracle's behavior to decrypt the flag. Although I could not find a direct reference to explain this attack, we can observe and illustrate it as an example.
+
+
 
 According to the code
 ```py
@@ -575,23 +584,25 @@ As an example:
 2. Let's say we send $C \equiv (2*M)^e \mod N$.
     + if the server returns 0 it means $M<N/4$ otherwise $M>N/4$
 
-Now consider we send a message like
+Now consider we send a message like:
 <center>
 $C_i \equiv (2^i*M)^e \mod N$
 </center>
 
-1. if the answer is `0` it means
+1. if the answer is `0`, it means
     + $M < N/{2^{i+1}}$ and we should lower the upper to ${L+H}/2$
-2. if the answer is `1` it means
+2. if the answer is `1`, it means
     + $M > N/{2^{i+1}} < $ and we should rise the lower bound to ${L+H}/2$
 
-This also looks like a binary search to limit the boundaries until we reach the exact value for M 
+
+This also looks like a binary search to limit the boundaries until we reach the exact value for M.  
 
 <center>
 $H-L < 1$
 </center>
 
-Similar to previous attack, the code to illustrate this attack is the same as previous one with a slight difference, the index of `i` should be started from 0 instead of 1 because there is already a 2 coefficient at the server.
+The code to illustrate this attack is similar to the previous one, with a slight difference: the index of `i` should start from 0 instead of 1 because the server already has `2` coefficients.
+
 
 ```py
 e = 65537
@@ -616,9 +627,10 @@ while i <= 1024:
 print long_to_bytes(upper_limit)
 ```
 
-Since we have to use both oracles at the same time to not exceed the limit(1500 requests) we should somehow combine these two algorithms. The algorithms are exactly the same except for the starting index. however, for the operation on upper and lower bounds I was not sure how to combine these two algorithms. Should I choose two different set of bounds or one was enough and after choising one pair it worked.
+Since we have to use both Oracles simultaneously without exceeding the limit(1500 requests), we should somehow combine these two algorithms. The algorithms are exactly the same except for the starting index. However, for the operation on upper and lower bounds, I was not sure how to combine these two algorithms. Should I choose two different sets of bounds, or was one enough? After choosing one pair, it worked.
 
 So here is the code to attack the oracles
+
 
 ```py
 def oracle_attack(N, e, C, oracle, index, M):
@@ -672,7 +684,7 @@ def oracle_attack(N, e, C, oracle, index, M):
 
 ```
 
-Notice that before attacking the oracles, we should get the current state by repeating the random number generator operation
+Notice that we should get the current state before attacking the oracles by repeating the random number generator operation.
 
 ```py
 x = list(patterns.keys())[0]
@@ -879,7 +891,7 @@ flag = long_to_bytes(m)
 print(flag)
 ```
 
-And here is the process and extracted flag(last byte could get fixed by just subtracting a 1 from final M)
+And here is the process and extracted flag(the last byte could get fixed by just subtracting 1 from the final M)
 
 ![../img/twinoracle_flag.png](../img/twinoracle_flag.png)
 
