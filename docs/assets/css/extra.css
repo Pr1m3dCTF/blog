@@ -20,6 +20,7 @@
     --md-ow-color: #82149e;
     --md-nb-color: #768303;
     --md-kc-color: #1c2599;
+    --md-s-color: #186415;
 }
 
 [data-md-color-scheme="mydark"] {
@@ -46,7 +47,9 @@
     --md-kc-color: #5d65db;
     --md-nt-color: #d5df4b;
     --md-na-color: #ffffff;
+    --md-s-color: #93e290;
 }
+
 
 html {
     scroll-behavior: smooth;    
@@ -218,4 +221,10 @@ body {
 
 .highlight .na { /* Function Name */
     color: var(--md-na-color);
+}
+
+.highlight .s,
+.highlight .s1,
+.highlight .s2 { /* Function Name */
+    color: var(--md-s-color);
 }
