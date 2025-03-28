@@ -11,6 +11,8 @@
     --md-code-fg-color: #000000; /* White for code text */ /* Changed to white */
     --md-comment-color: #4b4b4b;
     --md-typeset-a-color: #ff4444;
+    --md-table-fg: #1c1e20;
+    --md-table-bg: #e2dada;
     --md-n-color: #000000;
     --md-o-color: #227a38;
     --md-nn-color: #70166c;
@@ -21,6 +23,17 @@
     --md-nb-color: #768303;
     --md-kc-color: #1c2599;
     --md-s-color: #186415;
+    --table-header-bg: #acb2bd;
+    --table-header-color: #1d1e20;
+    --table-header-border-color: #282529;
+    --table-cell-bg: #f3eaea;
+    --table-cell-color: #1f1c1c;
+    --table-cell-border-color: #d6bfbe;
+    --table-hover-bg: #7283ce;
+    --table-zebra-bg: #418cd6;
+    --table-header-bg: #88a9df;
+    --table-header-fg: #0b1f46;
+    --table-header-border: #3a68b3;
 }
 
 [data-md-color-scheme="mydark"] {
@@ -36,6 +49,8 @@
     --md-code-fg-color: #ffffff; /* White for code text */ /* Changed to white */
     --md-comment-color: #cfcfcf;
     --md-typeset-a-color: #ff4444;
+    --md-table-fg: #d5d9dd;
+    --md-table-bg: #1f1d1d;
     --md-n-color: #8dc9ec;
     --md-o-color: #92f08f;
     --md-nn-color: #1e8694;
@@ -48,7 +63,80 @@
     --md-nt-color: #d5df4b;
     --md-na-color: #ffffff;
     --md-s-color: #93e290;
+    --table-header-bg: #27292c;
+    --table-header-color: #c7ced8;
+    --table-header-border-color: #a991af;
+    --table-cell-bg: #222020;
+    --table-cell-color: #e9e0e0;
+    --table-cell-border-color: #2b1514;
+    --table-hover-bg: #668eda;
+    --table-zebra-bg: #418cd6;
+    --table-header-bg: #16376b;
+    --table-header-fg: #dbe0e9;
+    --table-header-border: #051b3f;
 }
+
+/********************************************************************************************/
+
+.md-typeset table:not([class]) th {
+    /* Background */
+    background-color: var(--table-header-bg);
+    
+    /* Text */
+    color: var(--table-header-color);
+    
+    /* Borders */
+    border-color: var(--table-header-border-color);
+    
+    /* Additional */
+    text-transform: var(--table-header-text-transform);
+  }
+
+
+.md-typeset table:not([class]) td {
+    /* Background */
+    background-color: var(--table-cell-bg);
+    
+    /* Text */
+    color: var(--table-cell-color);
+    
+    /* Borders */
+    border-color: var(--table-cell-border-color);
+    border-width: var(--table-border-width);
+}
+
+/* Zebra striping */
+.md-typeset table:not([class]) tr:nth-child(even) td {
+    background-color: var(--table-zebra-bg);
+  }
+  
+  /* Hover effects */
+  .md-typeset table:not([class]) tr:hover td {
+    background-color: var(--table-hover-bg);
+    
+    --table-hover-color: inherit;
+    color: var(--table-hover-color);
+}
+
+
+
+/* Force header background color */
+.md-typeset table:not([class]) thead tr th {
+    background-color: var(--table-header-bg) !important;
+    color: var(--table-header-fg) !important;
+    border-color: var(--table-header-border) !important;
+  }
+  
+  /* Remove any gradient effects */
+.md-typeset table:not([class]) thead tr th {
+    background-image: none !important;
+}
+
+/***************************************************************************************/
+
+/* Back To Top Button Fix*/
+
+/***************************************************************************************/
 
 
 html {
