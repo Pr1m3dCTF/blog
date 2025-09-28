@@ -168,6 +168,16 @@ nav:
           - CTF/writeups/2025/Cyber-Apocalypse-2025/index.md
           - crypto:
             - Twin Oracle: CTF/writeups/2025/Cyber-Apocalypse-2025/crypto/twin-oracle.md
+        - Iran Tech Olympics CTF 2025:
+          - CTF/writeups/2025/Iran-Tech-Olympics-CTF-2025/index.md
+          - crypto:
+            - Techras : CTF/writeups/2025/Iran-Tech-Olympics-CTF-2025/crypto/Techras.md
+            - Techras II : CTF/writeups/2025/Iran-Tech-Olympics-CTF-2025/crypto/TechrasII.md
+            - Gotam : CTF/writeups/2025/Iran-Tech-Olympics-CTF-2025/crypto/Gotam.md
+          - web:
+            - Idolatress I : CTF/writeups/2025/Iran-Tech-Olympics-CTF-2025/web/IdolatressI.md
+            - Idolatress II : CTF/writeups/2025/Iran-Tech-Olympics-CTF-2025/web/IdolatressII.md
+
   - Contact Us: Contact-Us/
   - About Us: About-Us/
 
