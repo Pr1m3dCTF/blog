@@ -35,5 +35,25 @@ Overall rating place: **#810** (54.732 pts) — Country place: **#4** (IR)
 
 ## writeups
 
-Here we will publish our content related to CTFs, writeups, and challenges.
-[writeups](./writeups/)
+Here we publish our writeups for CTFs and challenges. Check out our [all writeups](./writeups/).
+
+### 2023
+
+| Contest | Challenges |
+|---------|-----------|
+| [Cyber Apocalypse 2023: The Cursed Mission](./writeups/2023/cyber-apocalypse-2023/) | Crypto (4), Blockchain (2), Web (1), Hardware (1), Forensics (1) |
+
+### 2024
+
+| Contest | Challenges |
+|---------|-----------|
+| [SnappCTF 2024](./writeups/2024/Snapp-ctf-2024/) | Crypto (4), Pwn (2), Reverse (3), Web (3), Forensics (1), OSINT (4) |
+| [JustCTF 2024 Teaser](./writeups/2024/JustCTF2024/) | Blockchain (1) |
+| [Cyber Apocalypse 2024: Hacker Royale](./writeups/2024/Cyber-Apocalypse-2024/) | Crypto (1), Blockchain (3) |
+
+### 2025
+
+| Contest | Challenges |
+|---------|-----------|
+| [Cyber Apocalypse 2025: Tales from Eldoria](./writeups/2025/Cyber-Apocalypse-2025/) | Crypto (1) |
+| [Iran Tech Olympics CTF 2025](./writeups/2025/Iran-Tech-Olympics-CTF-2025/) | Crypto (3), Web (2) |
