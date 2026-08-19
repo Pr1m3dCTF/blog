@@ -114,8 +114,9 @@ nav:
     - CTF/index.md
     - writeups:
       - 2023:
-        - Cyber Apocalypse 2023: 
-          - crypto: 
+        - Cyber Apocalypse 2023:
+          - CTF/writeups/2023/cyber-apocalypse-2023/index.md
+          - crypto:
             - inside the matrix: CTF/writeups/2023/cyber-apocalypse-2023/crypto/inside_the_matrix.md
             - multipage recyclings: CTF/writeups/2023/cyber-apocalypse-2023/crypto/multipage_recyclings.md
             - perfect synchronization: CTF/writeups/2023/cyber-apocalypse-2023/crypto/perfect_synchronization.md
@@ -156,6 +157,7 @@ nav:
             - Snapp Customers: CTF/writeups/2024/Snapp-ctf-2024/osint/snapp_customers.md
             - Snapp Saving: CTF/writeups/2024/Snapp-ctf-2024/osint/snapp_saving.md
         - Cyber Apocalypse 2024:
+          - CTF/writeups/2024/Cyber-Apocalypse-2024/index.md
           - crypto:
             - Permuted: CTF/writeups/2024/Cyber-Apocalypse-2024/crypto/permuted.md
           - blockchain:
@@ -163,6 +165,7 @@ nav:
             - Russian Roulette: CTF/writeups/2024/Cyber-Apocalypse-2024/blockchain/russianroulette.md
             - Ledger Heist: CTF/writeups/2024/Cyber-Apocalypse-2024/blockchain/ledgerheist.md
         - Just CTF 2024:
+          - CTF/writeups/2024/JustCTF2024/index.md
           - blockchain: CTF/writeups/2024/JustCTF2024/blockchain/blockchains.md
       - 2025:
         - Cyber Apocalypse 2025:

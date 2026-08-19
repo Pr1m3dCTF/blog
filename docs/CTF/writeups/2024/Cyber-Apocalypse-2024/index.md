@@ -6,4 +6,18 @@ social:
     title: CyberApocalypse 2024 writeups
 ---
 
-# HackTheBpx CyberApocalypse 2024
+# HackTheBox Cyber Apocalypse 2024
+
+We participated in HackTheBox Cyber Apocalypse 2024 CTF and ranked **157th**.
+
+Here are our writeups for the challenges we solved.
+
+## Crypto
+
+[Permuted](crypto/permuted.md)
+
+## Blockchain
+
+[Lucky Facucet](blockchain/luckyfaucet.md)<br>
+[Russian Roulette](blockchain/russianroulette.md)<br>
+[Ledger Heist](blockchain/ledgerheist.md)

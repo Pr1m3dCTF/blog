@@ -7,3 +7,9 @@ social:
 ---
 
 # JustCTF 2024
+
+We participated in JustCTF 2024 and here are our writeups for the challenges we solved.
+
+## Blockchain
+
+[Blockchains](blockchain/blockchains.md)
