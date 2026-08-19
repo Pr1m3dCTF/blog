@@ -77,6 +77,7 @@ extra_javascript:
 plugins:
   - glightbox
   - search
+  # - pdf-export
   # - git-authors
   - tags:
       title: Pr1m3d Team Blog

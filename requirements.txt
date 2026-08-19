@@ -6,3 +6,5 @@ pillow
 cairosvg
 cairocffi
 mkdocs-git-authors-plugin
+mkdocs-pdf-export-plugin
+mkdocs-to-pdf
