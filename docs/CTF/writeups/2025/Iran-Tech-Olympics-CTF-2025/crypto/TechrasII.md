@@ -163,7 +163,7 @@ ${c_1} ^ a * {c_2} ^ b = (m^{e_1}) ^ a * (m^{e_2}) ^ b = m^{ae_1} * m^{be_2} = m
 
 </center>
 
-If $gcd(e1, e2)$ is greater than 1, then we will not get directly the $\:m\:$ but $\:m\:$ to a power of a value greater than 1. According to the possible gcd values for all e values, we have
+If $gcd(e1, e2)$ is greater than 1, then we will not get directly the $ m $ but $ m $ to a power of a value greater than 1. According to the possible gcd values for all e values, we have
 
 <center>
 
@@ -234,7 +234,7 @@ $m, m^3, m^5, m^7, m^9, m^{11}, m^{13}, m^{17}$.
 
 </center>
 
-We can hope that our $\:M\:$ is not that large, so the values $\:\:m^k \quad k \in \{1, 3, 5, 7, 9, 11, 13, 17\} \:\:$ are less than $N$. In this case, we can calculate $M$ by computing the k-th root of the result.
+We can hope that our $ M $ is not that large, so the values $  m^k \quad k \in \{1, 3, 5, 7, 9, 11, 13, 17\}   $ are less than $N$. In this case, we can calculate $M$ by computing the k-th root of the result.
 
 Let's implement the function og calculating the k-th root of a number. You can also use libraries like gmpy.
 

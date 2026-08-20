@@ -150,9 +150,9 @@ del privkey
 ![alt text](image-11.png)
 
 
-The `gotam` function will generate two 128 prime numbers and calculate a parameter $\:n=p*q\:$. It will also generate a variable $\:t\:$ that is a Quadratic Non-Residue modulus $\:n\:$. The `check_nr` is intended to check this. If you want to know more about the Legendre symbol or what is quadratic residue, I highly recommend checking [this link](https://cryptohack.org/challenges/maths/) from cryptohack, especially the challenges Quadratic Residues, Legendre Symbol, and Modular Square Root.
+The `gotam` function will generate two 128 prime numbers and calculate a parameter $ n=p*q $. It will also generate a variable $ t $ that is a Quadratic Non-Residue modulus $ n $. The `check_nr` is intended to check this. If you want to know more about the Legendre symbol or what is quadratic residue, I highly recommend checking [this link](https://cryptohack.org/challenges/maths/) from cryptohack, especially the challenges Quadratic Residues, Legendre Symbol, and Modular Square Root.
 
-To be brief, the Legendre symbol is calculated to check if a number is a quadratic residue modulus a prime number p. We call a number a quadratic residue if it has a square root modulus a prime number. If the modulus number is a composite number like $\:n=p*q\:$ then to calculate the Legendre symbol, we need to have the factors of $\:n\:$ and calculate the Legendre Symbol for each factor separately. If any of them is -1 modulus the factor, then the number is a quadratic non-residue modulus n.
+To be brief, the Legendre symbol is calculated to check if a number is a quadratic residue modulus a prime number p. We call a number a quadratic residue if it has a square root modulus a prime number. If the modulus number is a composite number like $ n=p*q $ then to calculate the Legendre symbol, we need to have the factors of $ n $ and calculate the Legendre Symbol for each factor separately. If any of them is -1 modulus the factor, then the number is a quadratic non-residue modulus n.
 
 And this is the flag encryption part.
 
@@ -190,7 +190,7 @@ It seems we need to tackle a quadratic residue problem in this challenge. By the
 + $\text{residue} \times \text{non-residue} = \text{non-residue}$
 + $\text{non-residue} × \text{non-residue} = \text{residue}$
 
-We know that the variable $\:t\:$ is a quadratic non-residue. We also have a definite quadratic residue value in our encryption:
+We know that the variable $ t $ is a quadratic non-residue. We also have a definite quadratic residue value in our encryption:
 
 ```py
 getRandomNBitInteger(n.bit_length() - 1) ** 2
@@ -203,9 +203,9 @@ $bit=1 \rightarrow e = t^1 * R^2 = t * R^2 \quad (\text{quadratic non-residue})$
 
 $bit=0 \rightarrow e = t^0 * R^2 = R^2 \quad (\text{quadratic residue})$
 
-Based on the rule mentioned, because $\:R^2\:$ is a quadratic residue, if it is multiplied by $\:t\:$ (when the flag bit is 1), then the result (e) will be a quadratic non-residue. But if it is not multiplied by $\:t\:$ (when the flag bit is 0), then the result will be a quadratic residue.
+Based on the rule mentioned, because $ R^2 $ is a quadratic residue, if it is multiplied by $ t $ (when the flag bit is 1), then the result (e) will be a quadratic non-residue. But if it is not multiplied by $ t $ (when the flag bit is 0), then the result will be a quadratic residue.
 
-So all we need to do is to check if the sequence of $\:e\:$ values for every flag bit is a quadratic residue or non-residue. To do this, we need to calculate the Legendre symbol of every $\:e\:$ ciphertext. Because we are working modulus $\:n\:$, which is a composite number $\:n=p*q\:$, we can not simply calculate like the prime modulus. To that, we need to factor the $\:n\:$ and calculate the Legendre Symbol modulus for each factor `p,q` separately. I used yafu to factor `n`, and it is feasible because `n` is 256 bits.
+So all we need to do is to check if the sequence of $ e $ values for every flag bit is a quadratic residue or non-residue. To do this, we need to calculate the Legendre symbol of every $ e $ ciphertext. Because we are working modulus $ n $, which is a composite number $ n=p*q $, we can not simply calculate like the prime modulus. To that, we need to factor the $ n $ and calculate the Legendre Symbol modulus for each factor `p,q` separately. I used yafu to factor `n`, and it is feasible because `n` is 256 bits.
 
 ![alt text](image-8.png)
 
@@ -218,7 +218,7 @@ def check_rs(a):
     return ((pow(a, (p-1)//2, p) == 1) and (pow(a, (q-1)//2, q) == 1))*1
 ```
 
-And to determine the flag bits, if the $\:e\:$ value is a quadratic residue (the function output is 1), it means the flag bit is 0, so the `1 - check_rs()` would be 0. On the other hand, if the $\:e\:$ is a quadratic non-residue (the function output is 0), it means the flag bit is 1, so the `1 - check_rs()` would be 1.
+And to determine the flag bits, if the $ e $ value is a quadratic residue (the function output is 1), it means the flag bit is 0, so the `1 - check_rs()` would be 0. On the other hand, if the $ e $ is a quadratic non-residue (the function output is 0), it means the flag bit is 1, so the `1 - check_rs()` would be 1.
 
 ```py
 for line in lines:

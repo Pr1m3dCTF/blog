@@ -59,7 +59,7 @@ if __name__ == "__main__":
 ## Overview
 
 This is the second version of the Idolatress challenge, which was about determining the hashids and generating the desired value for number 1. This is a similar challenge with some more difficulties. 
-We are supposed to generate the hashids value of $\:2^313\:$ without having the secret salt value.
+We are supposed to generate the hashids value of $ 2^313 $ without having the secret salt value.
 We need to first crack the salt with an oracle that accepts input less than 2000 and then generate the target hashids for the wanted value.
 
 ## Challenge Analysis
@@ -100,7 +100,7 @@ def oracle(value: str):
 	return Response(f"{value} {my_encoder(int(value))}", mimetype="text/plain")
 ```
 
-And this is where we are supposed to predict the hash value for input $\:2**313\:$ and get the flag.
+And this is where we are supposed to predict the hash value for input $ 2**313 $ and get the flag.
 
 ```py
 @app.route("/data/<path:value>")
@@ -114,7 +114,7 @@ def data(value: str):
 	except:
 		return abort(400, "Bad Value!")
 ```
-We can generate a hash value for any input through the first endpoint, but it must be less than 2000, and we need to generate a hash value for a number $\:2000\:$ which is much greater than the limit. Additionally, we don't know the secret salt value, so we can not generate the hash easily.
+We can generate a hash value for any input through the first endpoint, but it must be less than 2000, and we need to generate a hash value for a number $ 2000 $ which is much greater than the limit. Additionally, we don't know the secret salt value, so we can not generate the hash easily.
 
 ## Solution
 
