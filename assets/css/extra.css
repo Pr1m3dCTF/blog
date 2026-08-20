@@ -1,0 +1,318 @@
+[data-md-color-scheme="mylight"] {
+    --md-primary-fg-color: #b60000; /* Red for header */
+    --md-primary-bg-color: #dddada; /* White for text in header */
+    --md-accent-fg-color: #000000; /* Lighter red for accents */
+    --md-default-bg-color: #ebebeb; /* Black for background */
+    --md-default-fg-color: #303030; /* White for text */
+    --md-default-fg-color--light: #303030; /* Light gray for secondary text */
+    --md-default-fg-color--lighter: #303030; /* Lighter gray for muted text */
+    --md-default-bg-color--light: #000000;
+    --md-code-bg-color: #fcfcfc; /* Dark gray for code blocks */
+    --md-code-fg-color: #000000; /* White for code text */ /* Changed to white */
+    --md-comment-color: #4b4b4b;
+    --md-typeset-a-color: #ff4444;
+    --md-table-fg: #1c1e20;
+    --md-table-bg: #e2dada;
+    --md-n-color: #000000;
+    --md-o-color: #227a38;
+    --md-nn-color: #70166c;
+    --md-nf-color: #768303;
+    --md-p-color: #000000;
+    --md-k-color: #131269;
+    --md-ow-color: #82149e;
+    --md-nb-color: #768303;
+    --md-kc-color: #1c2599;
+    --md-s-color: #186415;
+    --table-header-bg: #acb2bd;
+    --table-header-color: #1d1e20;
+    --table-header-border-color: #282529;
+    --table-cell-bg: #f3eaea;
+    --table-cell-color: #1f1c1c;
+    --table-cell-border-color: #d6bfbe;
+    --table-hover-bg: #7283ce;
+    --table-zebra-bg: #d6d8da;
+    --table-header-bg: #88a9df;
+    --table-header-fg: #0b1f46;
+    --table-header-border: #3a68b3;
+}
+
+[data-md-color-scheme="mydark"] {
+    --md-primary-fg-color: #b60000; /* Red for header */
+    --md-primary-bg-color: #dddada; /* White for text in header */
+    --md-accent-fg-color: #ffffff; /* Lighter red for accents */
+    --md-default-bg-color: #202020; /* Black for background */
+    --md-default-fg-color: #d1d1d1; /* White for text */
+    --md-default-fg-color--light: #e0e0e0; /* Light gray for secondary text */
+    --md-default-fg-color--lighter: #b0b0b0; /* Lighter gray for muted text */
+    --md-default-bg-color--light: #ffffff;
+    --md-code-bg-color: #303030; /* Dark gray for code blocks */
+    --md-code-fg-color: #ffffff; /* White for code text */ /* Changed to white */
+    --md-comment-color: #cfcfcf;
+    --md-typeset-a-color: #ff4444;
+    --md-table-fg: #d5d9dd;
+    --md-table-bg: #1f1d1d;
+    --md-n-color: #8dc9ec;
+    --md-o-color: #92f08f;
+    --md-nn-color: #1e8694;
+    --md-nf-color: #def042;
+    --md-p-color: #ffffff;
+    --md-k-color: #be6fd1;
+    --md-ow-color: #be6fd1;
+    --md-nb-color: #def042;
+    --md-kc-color: #5d65db;
+    --md-nt-color: #d5df4b;
+    --md-na-color: #ffffff;
+    --md-s-color: #93e290;
+    --table-header-bg: #27292c;
+    --table-header-color: #c7ced8;
+    --table-header-border-color: #a991af;
+    --table-cell-bg: #222020;
+    --table-cell-color: #e9e0e0;
+    --table-cell-border-color: #2b1514;
+    --table-hover-bg: #668eda;
+    --table-zebra-bg: #292828;
+    --table-header-bg: #16376b;
+    --table-header-fg: #dbe0e9;
+    --table-header-border: #051b3f;
+}
+
+/********************************************************************************************/
+
+.md-typeset table:not([class]) th {
+    /* Background */
+    background-color: var(--table-header-bg);
+    
+    /* Text */
+    color: var(--table-header-color);
+    
+    /* Borders */
+    border-color: var(--table-header-border-color);
+    
+    /* Additional */
+    text-transform: var(--table-header-text-transform);
+  }
+
+
+.md-typeset table:not([class]) td {
+    /* Background */
+    background-color: var(--table-cell-bg);
+    
+    /* Text */
+    color: var(--table-cell-color);
+    
+    /* Borders */
+    border-color: var(--table-cell-border-color);
+    border-width: var(--table-border-width);
+}
+
+/* Zebra striping */
+.md-typeset table:not([class]) tr:nth-child(even) td {
+    background-color: var(--table-zebra-bg);
+  }
+  
+  /* Hover effects */
+  .md-typeset table:not([class]) tr:hover td {
+    background-color: var(--table-hover-bg);
+    
+    --table-hover-color: inherit;
+    color: var(--table-hover-color);
+}
+
+
+
+/* Force header background color */
+.md-typeset table:not([class]) thead tr th {
+    background-color: var(--table-header-bg) !important;
+    color: var(--table-header-fg) !important;
+    border-color: var(--table-header-border) !important;
+  }
+  
+  /* Remove any gradient effects */
+.md-typeset table:not([class]) thead tr th {
+    background-image: none !important;
+}
+
+/***************************************************************************************/
+
+/* Back To Top Button Fix*/
+
+/***************************************************************************************/
+
+
+html {
+    scroll-behavior: smooth;    
+}
+
+
+/* Target fenced code blocks */
+.md-typeset pre > code {
+    color: var(--md-code-fg-color) !important; /* Use the variable for consistency */
+}
+
+/* Ensure syntax highlighting colors are also adjusted */
+.md-typeset .highlight code {
+    color: var(--md-code-fg-color) !important;
+}
+
+/* Body and overall text */
+body {
+    color: var(--md-default-fg-color); /* White text */
+    background-color: var(--md-default-bg-color); /* Black background */
+}
+
+/* Header */
+.md-header {
+    background-color: var(--md-primary-fg-color); /* Red header */
+    color: var(--md-primary-bg-color); /* White text in header */
+}
+
+/* Navigation links */
+.md-nav__link {
+    color: var(--md-default-fg-color); /* White text */
+}
+
+.md-nav__link--active {
+    color: var(--md-primary-fg-color); /* Red for active link */
+}
+
+/* Links in content */
+.md-typeset a {
+    color: var(--md-typeset-a-color); /* Red links */
+}
+
+.md-typeset a:hover {
+    color: var(--md-accent-fg-color); /* Lighter red on hover */
+}
+
+/* Footer */
+.md-footer {
+    background-color: var(--md-primary-fg-color); /* Red footer */
+    color: var(--md-primary-bg-color); /* White text in footer */
+}
+
+.md-footer-meta {
+    background-color: #b10000; /* Dark gray for footer meta */
+    color: var(--md-default-fg-color); /* White text */
+}
+
+/* Code blocks */
+.md-typeset pre {
+    background-color: var(--md-code-bg-color); /* Dark gray for code blocks */
+    color: var(--md-code-fg-color); /* White text in code blocks */
+}
+
+.highlight .c,  /* General comments */
+.highlight .cm, /* Multiline comments */
+.highlight .c1 { /* Single-line comments */
+    color: var(--md-comment-color);
+    font-style: italic;
+}
+
+/* Tables */
+.md-typeset table:not([class]) {
+    background-color: #1a1a1a; /* Dark gray for tables */
+    color: var(--md-default-fg-color); /* White text in tables */
+}
+
+.md-typeset table:not([class]) th {
+    background-color: #333333; /* Slightly lighter gray for table headers */
+    color: var(--md-default-fg-color); /* White text in table headers */
+}
+
+.md-typeset table:not([class]) td {
+    border-top: 1px solid #444444; /* Gray border for table rows */
+}
+
+/* Buttons */
+.md-typeset .md-button {
+    background-color: var(--md-primary-fg-color); /* Red buttons */
+    color: var(--md-primary-bg-color); /* White text in buttons */
+    border-radius: 4px;
+    padding: 0.5em 1em;
+    text-align: center;
+}
+
+.md-typeset .md-button:hover {
+    background-color: var(--md-accent-fg-color); /* Lighter red on hover */
+}
+
+/* Admonitions (notes, warnings, etc.) */
+.md-typeset .admonition {
+    background-color: #1a1a1a; /* Dark gray for admonitions */
+    color: var(--md-default-fg-color); /* White text */
+    border-left: 4px solid var(--md-primary-fg-color); /* Red border */
+}
+
+.md-typeset .admonition-title {
+    background-color: #333333; /* Slightly lighter gray for title */
+    color: var(--md-default-fg-color); /* White text */
+}
+
+/* Blockquotes */
+.md-typeset blockquote {
+    color: var(--md-default-fg-color--light); /* Light gray for blockquotes */
+    border-left: 4px solid var(--md-primary-fg-color); /* Red border */
+    background-color: var(--md-default-bg-color--ligh); /* Dark gray background */
+}
+
+
+.md-typeset .highlight.language-python .cp {
+    color: #ff00ff !important; /* Magenta */
+    font-style: italic;
+}
+
+.md-typeset .highlight .ch, /* Shebang (often classified as a comment) */
+.md-typeset .highlight .cpf { /* Preprocessor directives (alternative) */
+    color: #ff7300 !important; /* Orange color for shebang */
+    font-weight: bold;
+}
+
+.highlight .n { /* General name */
+    color: var(--md-n-color);
+}
+
+.highlight .o { /* Operators */
+    color: var(--md-o-color);
+}
+
+.highlight .nn { /* Package Name */
+    color: var(--md-nn-color);
+}
+
+.highlight .nf { /* Function Name */
+    color: var(--md-nf-color);
+}
+
+.highlight .p { /* Function Name */
+    color: var(--md-p-color);
+}
+
+.highlight .k { /* Function Name */
+    color: var(--md-k-color);
+}
+
+.highlight .ow { /* Function Name */
+    color: var(--md-ow-color);
+}
+
+.highlight .nb { /* Function Name */
+    color: var(--md-nb-color);
+}
+
+.highlight .kc { /* Function Name */
+    color: var(--md-kc-color);
+}
+
+.highlight .nt { /* Function Name */
+    color: var(--md-nt-color);
+}
+
+.highlight .na { /* Function Name */
+    color: var(--md-na-color);
+}
+
+.highlight .s,
+.highlight .s1,
+.highlight .s2 { /* Function Name */
+    color: var(--md-s-color);
+}
