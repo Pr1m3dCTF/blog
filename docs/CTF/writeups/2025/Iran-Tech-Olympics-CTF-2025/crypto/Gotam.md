@@ -173,11 +173,11 @@ def encrypt(msg, pubkey):
 
 The encryption part is quite interesting; it will convert the flag to binary format and will adjust it to match a 1024-bit message with 0 values for MSB bits. Then, it will calculate a value based on the 0,1 value of the flag bits.
 
-<center>
+<div class="arithmatex" align="center">
 
 $t^{bit\_value} * {random\_number}^2$
 
-</center>
+</div>
 
 Then it will print this output to the user, and this process will be done for every single bit of the flag.
 

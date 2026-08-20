@@ -56,11 +56,11 @@ def make_prime(nbit):
 
 if we look at the algorithm, the prime generation isn't trivial safe method and is like this:
 
-<center>
+<div class="arithmatex" align="center">
 $p, q = x_1 \cdot x_2 \cdot x_3 \cdot x_4 \cdot x_5 \cdot \ldots \cdot x_{16} + 1$
 
 $2^{31} < x_1, x_2, x_3, \ldots, x_{16} < 2^{32}$
-</center>
+</div>
 
 in mathematics we call these numbers smooth numbers. in another words both `p-1` and `q-1` have prime factors less than `4294967296` which are called 32-bit smooth numbers. you can read about smooth numbers [here](https://en.wikipedia.org/wiki/Smooth_number).<br>
 using of smooth numbers when generating prime factors is not a safe idea. because there is an algorithm called **pollard p-1** which is about factoring a composite number `n` while all its prime factors `p-1` are  power-smooth. and this smoothness is not that large (here it is 32 bit which is reasonable) 
@@ -93,43 +93,43 @@ Let's see how this algorithm works
 #### Fermat's Little Theorem
 We know that for every prime number `p` and a random number `a` co-prime to `p` we can write
 
-<center>
+<div class="arithmatex" align="center">
 $a^{(p-1)} \equiv 1 \pmod{p}$
 
 or
 
 $a^{(p-1)} - 1 = p \cdot r$
-</center>
+</div>
 
 In other words $a^{(p-1)} - 1$ has two factors `p,r` and `p` is prime. We can also multiply `p-1` with `k`:
 
-<center>
+<div class="arithmatex" align="center">
 $a^{k \cdot (p-1)} \equiv 1 \pmod{p}$
 
 or
 
 $a^{k \cdot (p-1)} - 1 = p \cdot s$
-</center>
+</div>
 
 #### The proof
 From previous equations we can conclude:
 
-<center>
+<div class="arithmatex" align="center">
 $\text{gcd}(a^{k \cdot (p-1)} - 1, n) = p$
 
 $\text{B} = k \cdot (p-1)$
 
 $\text{gcd}(a^B - 1, n) = p$
-</center>
+</div>
 
 If we can calculate `B` and choose any integer `a` co-prime to `n`(2 is the best choice), then we can find `p` with `gcd` operation. simple huh?! But how to find `B`.<br>
 We know that:
 
-<center>
+<div class="arithmatex" align="center">
 $B = k \cdot (p-1)$
 
 $p-1 = p_1 \cdot p_2 \cdot p_3 \cdot \ldots \cdot p_x$
-</center>
+</div>
 
 And we know that `p-1` is `power-smooth` which means that all factors of `p-1`(`p1, p2, ..., px`) are less than `4294967296`<br>
 So if we choose B=$1.2.3.4.....4294967296$ and calculate that we can assure that `B` has `p` inside its factor and gcd of $a^{B} - 1$ with `n` will result in `p` which is one of the factors.

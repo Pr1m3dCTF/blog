@@ -109,7 +109,7 @@ because our `n` is very small (`n<m`) so we can not get the encrypted flag.
 let's see how n is generated based on our seeds
 
 
-<center>
+<div class="arithmatex" align="center">
 $n = P \cdot Q$
 
 $P = p \cdot x + 1$
@@ -119,7 +119,7 @@ $Q = p \cdot y + 1$
 $n = (p \cdot x + 1) \cdot (p \cdot y + 1) \quad \longrightarrow \quad 2^{\left(\frac{\log_2{p}}{4}-1\right)} < x,y < 2^{\frac{\log_2{p}}{4}}$
 
 $n = (p^2) \cdot (x \cdot y) + p \cdot x + p \cdot y + 1$
-</center>
+</div>
 
 The solution I was thinking about was about first find `p` then find `x,y` and calculate `P,Q`. I was thinking about brute-forcing them but it only is possible when they are small.
 let's see how we can feed our algorithm with a seed that `p,x,y` are small meanwhile `P` and `Q` are large enough such that `n > m`.
@@ -127,7 +127,7 @@ let's see how we can feed our algorithm with a seed that `p,x,y` are small meanw
 The thing I was sure about to consider `l` as maximum possible value (60) because it results in small `e` then small `w` we know  `w` is only dependent on `l` and `p` is dependent on `r` and `u` because we have the value `u` we only need `1 < r < w` to find `p`. so the larger `l` leads to smaller `e` and smaller `w` and smaller `r` and makes it easier to find `r`
 if we consider `l` as 60 the `w` will value be like this
 
-<center>
+<div class="arithmatex" align="center">
 $l = 60$
 
 $e = (64-l)*2^{4}$
@@ -143,7 +143,7 @@ $w = 2^{32}$
 $w = 4294967296$
 
 $1 < r < 4294967296$
-</center>
+</div>
 
 we have `u` we only need to predict r to find p
 

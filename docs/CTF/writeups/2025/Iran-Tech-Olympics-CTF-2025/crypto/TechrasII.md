@@ -82,19 +82,19 @@ According to the new changes, we will no longer be able to solve the challenge l
 
 Let's assume the occurrence of the same padding in two ciphertexts among 25 ciphertexts is $A$. We can do it by the Complement Rule in probability. Let's see what the probability is of not occurring redundant padding in these 25 ciphertexts.
 
-<center>
+<div class="arithmatex" align="center">
 
 $P(A') = \underbrace{ \frac{72}{72} * \frac{71}{72} * \frac{70}{72} * \cdots * \frac{48}{72}}_{25 \text{ times}} = 0.008$
 
-</center>
+</div>
 
 As we see, the probability of not having the same padding for two ciphertexts among 25 ciphertexts is 0.008. So the probability of seeing the same padding for two ciphertexts among 25 total would be:
 
-<center>
+<div class="arithmatex" align="center">
 
 $P(A) = 1 - P(A') = 1 - 0.008 = 0.998 \approx 1$
 
-</center>
+</div>
 
 Although our ciphertexts(25) are much less than the whole possible paddings(72), we can almost % 100% be sure that the flag has been padded with the same padding. This is what is called [birthday paradox](https://betterexplained.com/articles/understanding-the-birthday-paradox/) in cryptography.
 
@@ -121,19 +121,19 @@ print(f'e = {e}')
 
 For the first encryption, a 64-bit prime number was generated, and each time it was increased by two for the next encryption. So the public exponents would be like:
 
-<center>
+<div class="arithmatex" align="center">
 
 $\underbrace{E , E+2 , E+4 , \cdots , E+48}_{25 \text{ total}}$
 
-</center>
+</div>
 
 We have 25 different public exponents, so we will have 300 possible pairs in total:
 
-<center>
+<div class="arithmatex" align="center">
 
 ${25 \choose 2} = \frac{25*24}{2} = 300$
 
-</center>
+</div>
 
 We already know that although our number of ciphertexts(25) is much less than the whole possible padding space(72), we still can be sure with a chance of %0.99 that we have the same padding in our ciphertext due to the birthday paradox. So let's see if our public exponents are coprime to each other or not.
 
@@ -149,27 +149,27 @@ If we calculate all possible gcd of two pairs, we will get 8 possible values `{1
 So performing the common modulus attack may lead to calculating different values. Let's see what we may get by performing the same attack. By the Extended gcd, we have:
 
 
-<center>
+<div class="arithmatex" align="center">
 
 $\forall\ x,y \quad \exists\ a,b \quad \rightarrow \quad ax + by = gcd(x,y)$
 
-</center>
+</div>
 
 Let's assume we have found corresponding `a,b` for an example pair `e1,e2`, Let's see what will happen if we perform the attack.
 
-<center>
+<div class="arithmatex" align="center">
 
 ${c_1} ^ a * {c_2} ^ b = (m^{e_1}) ^ a * (m^{e_2}) ^ b = m^{ae_1} * m^{be_2} = m^{ae_1 + be_2} = m^{gcd(e1,e2)}$
 
-</center>
+</div>
 
 If $gcd(e1, e2)$ is greater than 1, then we will not get directly the $ m $ but $ m $ to a power of a value greater than 1. According to the possible gcd values for all e values, we have
 
-<center>
+<div class="arithmatex" align="center">
 
 $1, 3, 5, 7, 9, 11, 13, 17$
 
-</center>
+</div>
 
 Let's perform the attack to see if we can find a flag padded with the same characters and encrypted twice with two coprime public exponents.
 
@@ -228,11 +228,11 @@ Let's see what will happen.
 As we can see, there is no flag with the same padding and two co-prime e values. So let's assume the gcd of two public exponents for the same padded flags is one of the values `{1, 3, 5, 7, 9, 11, 13, 17}`. So by performing the attack, we will get one of these values. 
 
 
-<center>
+<div class="arithmatex" align="center">
 
 $m, m^3, m^5, m^7, m^9, m^{11}, m^{13}, m^{17}$.
 
-</center>
+</div>
 
 We can hope that our $ M $ is not that large, so the values $  m^k \quad k \in \{1, 3, 5, 7, 9, 11, 13, 17\}   $ are less than $N$. In this case, we can calculate $M$ by computing the k-th root of the result.
 

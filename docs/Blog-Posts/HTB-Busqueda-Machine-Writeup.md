@@ -11,9 +11,9 @@ ShowRssButtonInSectionTermList: true
 Icon: htb.svg
 ---
 
-<center>
+<div class="arithmatex" align="center">
 ![Busqueda](./images/Busqueda.png)
-</center>
+</div>
 
 When I started getting into cybersecurity and htb I had no idea where to begin, What to do and why enter commands that I found. So in this writeup as it's an easy machine i'll try to write a short part for each command to explain what does the command do, how did I figured out I should use this command, etc. So without any further waste of time lets get to it.
 

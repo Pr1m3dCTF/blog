@@ -156,11 +156,11 @@ class ChaosRelic:
 
 This class looks like a random number generator that starts with an initial state $x_0$, and every time the state changes like this
 
-<center>
+<div class="arithmatex" align="center">
 $x \equiv x^2 \mod M$
 
 $M = p*q$
-</center>
+</div>
 
 M is a 16-bit composite number which is the multiplication of two 8-bit primes `p,q.` ‌Because M is in the form of $p*q$, the x will not generate the entire group, and it will randomly generate some specific elements from the group and will cycle through them. This is quite similar to a random number generator. **The M is public and is printed in the server banner below. But the x0 (the initial state) is unknown**
 
@@ -280,9 +280,9 @@ def next_state(self):
     self.x = pow(self.x, 2, self.M)
 ```
 
-<center>
+<div class="arithmatex" align="center">
 $state \equiv state^2 \mod M$
-</center>
+</div>
 
 Back to the `get_bit` function, this function calls another function named `extract_bit_from_state,` which will return the LSB(Least Significant bit) of the state simply by taking the state to modulus 2
 
@@ -389,19 +389,19 @@ If you want a detailed explanation of how this attack works, read through those 
 
 RSA has a fantastic property named [Homomorphism](https://en.wikipedia.org/wiki/Homomorphism). it means
 
-<center>
+<div class="arithmatex" align="center">
 $f(x.y) = f(x).f(y)$
-</center>
+</div>
 
 Regarding RSA, imagine we have two messages: $m_1$ and $m_2$. By definition, we can write:
 
-<center>
+<div class="arithmatex" align="center">
 $E(m1*m2) = E(m1).E(m2)$
-</center>
+</div>
 
 Consider $c$ as the encryption of $m=m1*m2$ and $c_i$ as encryption of $m_i$ for $i={1,2}$. We can write
 
-<center>
+<div class="arithmatex" align="center">
 $c_1 \equiv (m_1)^e \mod n$
 
 $c_2 \equiv (m_2)^e \mod n$
@@ -409,21 +409,21 @@ $c_2 \equiv (m_2)^e \mod n$
 $c \equiv (m_1*m_2)^e = (m)^e \mod n$
 
 $c \equiv c1 * c2 \mod n$
-</center>
+</div>
 
 Consider we want to decrypt the encrypted `flag`, which has been encrypted.
 
-<center>
+<div class="arithmatex" align="center">
 $cf \equiv flag^e \mod N$
-</center>
+</div>
 
 Let's analyze this approach.
 
 Encrypt `2` by the public key `n,e`, which is known, and multiply the result by cf modulus N and name the result ct
 
-<center>
+<div class="arithmatex" align="center">
 $ct \equiv cf * 2^e \mod N$
-</center>
+</div>
 
 By Homomorphism, we know that once the `ct` is decrypted, it will result in $2*flag$. We know that `n` is odd, and if $2*flag$ is less than `n`, it will result in $2*flag$, which is definitely even and will return 0, but if $2*flag$ is greater than `n`, it will result in  $2*flag - N$ which is odd (even - odd = odd). The result will be 
 
@@ -451,15 +451,15 @@ Now we know we have an Oracle that is vulnerable to an LSB Oracle attack. But th
 To find out the initial state, we need to give a carefully crafted input that will be directed to the second oracle, which checks whether the decryption result is greater than $n/2$. Let's say we send this encrypted text to the server
 
 
-<center>
+<div class="arithmatex" align="center">
 $cf \equiv (N-1)^e \mod N$
-</center>
+</div>
 
 After sending this input to the server, let's see what will happen in different states
 
-<center>
+<div class="arithmatex" align="center">
 $cf^d \equiv N-1 \mod N$
-</center>
+</div>
 
 ```py
 c = input('hex format : ')
@@ -563,17 +563,17 @@ return int(decrypt(c)) > (n//2)
 
 if we send and encrypted text $C$
 
-<center>
+<div class="arithmatex" align="center">
 $C \equiv M^e \mod N$
-</center>
+</div>
 
 it will return `0` if the decrypted message is lower than $n/2$; otherwise it will return `1`. In another word,
 
-<center>
+<div class="arithmatex" align="center">
 $M > N/2$
 
 $2*M > N$
-</center>
+</div>
 
 We can use a similar approach to LSB oracle attack and start to multiply the M, which we want to decrypt by exponents of 2 and send it to the server to limit the bondaries of N which shows what ranges of N, M might be at.
 
@@ -585,9 +585,9 @@ As an example:
     + if the server returns 0 it means $M<N/4$ otherwise $M>N/4$
 
 Now consider we send a message like:
-<center>
+<div class="arithmatex" align="center">
 $C_i \equiv (2^i*M)^e \mod N$
-</center>
+</div>
 
 1. if the answer is `0`, it means
     + $M < N/{2^{i+1}}$ and we should lower the upper bound to ${L+H}/2$
@@ -597,9 +597,9 @@ $C_i \equiv (2^i*M)^e \mod N$
 
 This also looks like a binary search to limit the boundaries until we reach the exact value for M.  
 
-<center>
+<div class="arithmatex" align="center">
 $H-L < 1$
-</center>
+</div>
 
 The code to illustrate this attack is similar to the previous one, with a slight difference: the index of `i` should start from 0 instead of 1 because the server already has a `2` coefficient.
 

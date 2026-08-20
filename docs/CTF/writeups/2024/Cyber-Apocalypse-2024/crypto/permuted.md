@@ -118,23 +118,23 @@ def __mul__(self, other):
 
 Imagine we have two elements like this
 
-<center>
+<div class="arithmatex" align="center">
 $g_1 = {4,2,3,1,0}$
 
 $g_2 = {2,3,0,1,4}$
-</center>
+</div>
 
 we want to multiply these two elements, multiplication operation is defined like this
 
-<center>
+<div class="arithmatex" align="center">
 $g_1 \times g_2 = g_1[g_2[i]] \quad for \quad i=0,1,2, \ldots ,n-1$
-</center>
+</div>
 
 so the multiplication of $g_1 \times g_2$ will be
 
-<center>
+<div class="arithmatex" align="center">
 $g_1 \times g_2 = {3,1,4,2,0}$
-</center>
+</div>
 
 **Exponentiation**
 
@@ -156,9 +156,9 @@ def __pow__(self, power, modulo=None):
 
 exponentiation by power `n` is defined by multiplying an element `g` for `n` times with itself
 
-<center>
+<div class="arithmatex" align="center">
 $g^n = \underbrace{g \times g \times g \times g}_{n \text{ times}}$
-</center>
+</div>
 
 there is an optimal algorithm for exponentiation which is done in $O(logn)$ instead of $O(n)$, in cases of large `n` this algorithm is better and feasable
 
@@ -220,9 +220,9 @@ If we can find one of `a,b` values we can calculate `C` and the secret key and d
 
 let's first see what is the order of our generator `g`. order of a generator in a group is lowest possible value $x$ such that g to the power of $x$ is equal to identity element
 
-<center>
+<div class="arithmatex" align="center">
 $g^x = e$
-</center>
+</div>
 
 ![../imgs/Screenshot 2024-03-16 at 4.08.55 PM.png](../imgs/Screenshot 2024-03-16 at 4.08.55 PM.png)
 
@@ -269,23 +269,23 @@ tbh there is no need to calculate the order of `g` _lol_, but anyway. before we 
 
 $X_i$ is period or order of element $g[i]$ if:
 
-<center>
+<div class="arithmatex" align="center">
 $g^{X_i}[i] = e[i] \quad for \quad i=0,1,2,...,n-1$
-</center>
+</div>
 
 
 $Y_i$ is distance of element $g[i]$ from $A[i]$ if:
 
-<center>
+<div class="arithmatex" align="center">
 $g^{Y_i}[i] = A[i] \quad for \quad i=0,1,2,...,n-1$
-</center>
+</div>
 
 
 now we have the order and we should see how much distance each element of `g` has from its coresponding element in `A`. The reason that we wanna mesaure this distance is to find secret value `a` or `b`, but how these are related? we need to find just one of them so I pick `a`. we know that `a` and `b` are a large value(they should be) and each element of `g`'s period (the periods array we calculated in previous python code) are less than `a` or `b`. we have `n` equations like this
 
-<center>
+<div class="arithmatex" align="center">
 $a \equiv Y[i] \mod{X[i]} \quad for \quad i=0,1,2,...,n-1$
-</center>
+</div>
 
 now we have 50000 modular equations. we can use CRT (chinese Remainder Theorem) to find $a$.
 

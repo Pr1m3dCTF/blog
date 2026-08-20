@@ -131,33 +131,33 @@ Now we can assure that there are ciphertexts that contain the same message (flag
 
 With some research, we can find [This Stack Overflow Link](https://crypto.stackexchange.com/questions/16283/how-to-use-common-modulus-attack), which explains some sort of attack on RSA that holds the same condition. By encrypting one message with two different E and shared N, we can decrypt the message without knowing the private key. But there should be one condition to make this attack successful.
 
-<center>
+<div class="arithmatex" align="center">
 
 $gcd(e1, e2) = 1$
 
-</center>
+</div>
 
 We already know that e1 and e2 are coprime because all e values are prime numbers. For the second condition, there is almost 0% chance that the second ciphertext had a common factor(p or q) with n. But we will check that.
 
 The attack utilizes the extended Euclidean algorithm to find two integers ‍`a, b` such that:
 
-<center>
+<div class="arithmatex" align="center">
 
 $a*e_1 + b*e_2 = gcd(e1, e2)$
 
-</center>
+</div>
 
 We know that $gcd(e1, e2) = 1$ so:
 
-<center>
+<div class="arithmatex" align="center">
 
 $a*e_1 + b*e_2 = 1$
 
-</center>
+</div>
 
 If we calculate $c_1 ^ a * c_2 ^ b$ this would happen:
 
-<center>
+<div class="arithmatex" align="center">
 
 $c_1 ^ a * c_2 ^ b = (m ^ {e_1}) ^ a * (m ^ {e_2}) ^ b$
 
@@ -165,7 +165,7 @@ $= m ^ {a * {e_1}} * m ^ {b * e_2} = m ^ {a * e_1 + b * e_2}$
 
 $\xrightarrow{gcd(e1, e2) = 1} = m^1 = m$
 
-</center>
+</div>
 
 NOTE: It is trivial that one of `a` or `b` should hold a negative value. So gcd(c1, n) and gcd(c2, n) should be `1` for c1 and c2 to be invertible. There is almost a 0% chance that c1 or c2 holds a common factor(p or q) with n.
 
